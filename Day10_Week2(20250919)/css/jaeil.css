@@ -1,0 +1,179 @@
+@charset "utf-8";
+
+* {
+    margin:0; padding:0; box-sizing: border-box;
+}
+html,body {
+    color:#333;
+}
+img {
+    display: block; max-width: 100%;
+}
+a {
+    color:#333; text-decoration: none;
+}
+
+#layout {
+    width:1000px; margin:auto;
+    position: relative;
+}
+
+header {
+    height: 100px; align-items: center;
+    display: flex; justify-content: space-between;
+}
+header ul {
+    list-style: none; display: flex; 
+}
+header ul a {
+    display: block;
+}
+header li {
+    position: relative;
+}
+
+.mainMenu {
+    padding:10px 60px; 
+    font-size:1.05rem; font-weight:bold;
+}
+
+/*메인메뉴에 마우스를 델때와 ,  그리고
+서브메뉴에 마우스를 델때 해당 메인메뉴의 하이라이트가 유지되는 기능*/
+.mainMenu:hover ,
+header li:hover .mainMenu{
+    background: #555347; color:white;
+}
+
+.subMenu {   
+    text-align: center; padding-top:10px;
+    position: absolute; width:100%; z-index: 2;
+    height:0; overflow: hidden; transition: height 0.5s;
+}
+.subMenu a {
+    padding:7px;
+}
+/* 서브메뉴 각 항목에 마우스를 델때*/
+.subMenu a:hover {
+    background: #848455; color:white;
+}
+
+/* 메뉴영역에 마우스를 델때 */
+header ul:hover .subMenu {
+    height:150px;
+}
+
+/*******/
+#whiteBg {
+    background: rgba( 255,255,255 , 0.9);
+    box-shadow: 0 2px 5px rgba( 0,0,0, 0.5);
+    position: absolute; width:100%; height:0;
+    transition: height 0.5s;  z-index: 1;
+}
+
+/****************************/
+/*슬라이드부분*/
+#slideArea {
+    height:300px; position: relative;
+    overflow: hidden;
+}
+#slideArea h2 {
+    position: absolute; width:400px;
+    background: rgba( 255,255,255 , 0.9);
+    padding:20px; padding-left:80px;
+    border-radius:20px; 
+    box-shadow: 0 0 10px rgba(0,0,0, 0.7);
+    top:100px; left:300px;
+}
+#slide {
+    display: flex; width:3000px;
+    position: relative; left:0;
+}
+#slide img {
+    width:1000px; height:300px;
+}
+
+/*********************/
+main {
+    min-height: 300px; display: flex;
+    padding-top:20px;
+}
+main h2 {
+    border-bottom: 1px solid gray;
+    margin-bottom: 10px;
+}
+#notice {
+    flex:1.3;
+}
+#notice ul {
+    list-style-position: inside;
+    padding-left:10px;
+    line-height: 180%;
+}
+#notice span {
+    float: right;
+}
+#notice a:hover {
+    color:green; text-decoration: underline;
+}
+
+#gallery {
+    flex:1; margin:0 60px;
+}
+#gallery img {
+    width:90%; margin: auto;
+}
+#gallery div {
+    display: flex; align-items: center;
+    justify-content: space-between;
+    margin-top:20px;
+}
+#gallery h3 {
+    width:110px; height:110px;
+    background: #d4e1cb;
+    border-radius:50%;
+    font-size:1rem; padding-top:30px;
+    text-align: center;
+}
+#gallery ol {
+    list-style-position: inside;
+    letter-spacing: -1px;
+    font-size:0.95rem;
+}
+
+#banner {
+    flex:0.8;
+    padding-top: 20px;
+}
+#banner h2 {
+    display: none;
+}
+#banner a {
+    display: block;
+    margin:5px;
+}
+#banner img {
+    margin:auto;
+}
+
+/********************/
+footer {
+    min-height: 100px; background: #ddd;
+    display: flex; justify-content: space-between;
+    padding:10px; align-items: center;
+    margin-top:20px;
+}
+/********************/
+#popup {
+    width:500px; height:300px; background: white;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.7);
+    border-radius:20px;
+    position: absolute; top:120px; left:250px;
+    padding:20px; text-align: justify;
+    line-height: 170%; display: none;
+}
+#popup h3 {
+    padding-bottom: 10px;
+}
+#popup button {
+    float:right; padding:3px 6px; margin-top: 20px;
+}

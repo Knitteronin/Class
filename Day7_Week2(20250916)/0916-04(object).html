@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>라인</p>
+    <p>컴퓨터</p>
+    <p>20</p>
+    <p>학원</p>
+    <script>
+      const $p = document.querySelectorAll("p");
+
+      let obj = {
+        name: "카리나",
+        age: 20,
+        insa: function () {
+          alert("저는 " + this.name + "입니다.");
+        }
+      };
+
+      $p[3].textContent = obj.name + "는 " + obj.age + "살 입니다. ";
+      obj.insa();
+      
+    </script>
+  </body>
+</html>

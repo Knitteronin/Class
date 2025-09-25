@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구글웹폰트로 아이콘메뉴 만들기</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Single+Day&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <style>
+      nav {
+        max-width: 600px;
+        margin: auto;
+        font-family: "Single Day", cursive;
+        display: flex;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      nav a.material-symbols-sharp {
+        color: black;
+        text-decoration: none;
+        font-size: 3rem;
+        flex: 1;
+        text-align: center;
+        background-color: rgb(107, 107, 99);
+        padding: 20px;
+        color: white;
+      }
+      nav a.material-symbols-sharp.green {
+        background: rgb(89, 178, 41);
+      }
+      nav a.material-symbols-sharp:hover {
+        background: black;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="#" class="material-symbols-sharp green">home_and_garden</a>
+      <a href="#" class="material-symbols-sharp">domain</a>
+      <a href="#" class="material-symbols-sharp">photo_size_select_large</a>
+      <a href="#" class="material-symbols-sharp">settings_account_box</a>
+      <a href="#" class="material-symbols-sharp">map_pin_review</a>
+    </nav>
+    <script>
+      const $nav_a = document.querySelectorAll("nav a"); //Nodelist
+      $nav_a.forEach((i) => {
+        i.addEventListener("click", () => {
+            $nav_a.forEach(j => j .classList.remove('green'));
+          i.classList.add("green");
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>우울한 동동이</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      main {
+        background-color: aquamarine;
+        max-width: 1000px;
+        height: 100vh;
+        margin: auto;
+
+        background: skyblue url("images/load.jpg") no-repeat center bottom /
+          cover;
+        overflow: hidden;
+        position: relative;
+      }
+      h1 {
+        padding: 20px;
+        margin: 0;
+        text-align: center;
+        padding: 20px;
+        text-shadow: 2px 2px 0 white;
+      }
+
+      [alt="동동이"] {
+        position: absolute;
+        bottom: 0;
+        width: 300px;
+        animation: dong 8s infinite;
+      }
+      [alt="잔디"] {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+      }
+
+      @keyframes dong {
+        from {
+          left: -400px;
+          top: 500px;
+        }
+        to {
+          left: 100%;
+          top: 550px;
+        }
+      }
+
+      [alt="father"] {
+        position: absolute;
+        bottom: 100;
+        width: 300px;
+        animation: dad 5s infinite;
+      }
+
+      @keyframes dad {
+        from {
+          left: 1200px;
+          top: 550px;
+        }
+        to {
+          left: 0;
+          top: 500px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>길을 걷고 있는 동동이</h1>
+
+      <img src="images/green.png" alt="잔디" />
+      <a href="picnic.html"><img src="images/dongdong.png" alt="동동이" /></a>
+      <img src="images/dad.png" alt="father" />
+    </main>
+  </body>
+</html>

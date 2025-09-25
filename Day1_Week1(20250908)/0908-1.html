@@ -1,0 +1,66 @@
+<!DOCTYPE html> <!-- HTML5 문서 선언 -->
+<html lang="ko"> <!-- 문서 언어를 한국어로 설정 -->
+  <head>
+    <meta charset="UTF-8" /> <!-- 문자 인코딩을 UTF-8로 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <!-- 반응형 웹을 위한 뷰포트 설정 -->
+    <title>html 시작하기</title> <!-- 브라우저 탭에 표시될 제목 -->
+  </head>
+  <body>
+    <!-- 순서 없는 목록(ul), 노란 배경, 글씨 크기 10px -->
+    <ul style="background: yellow; width: 330px; font-size: 10px">
+      <li>딸기</li>      <!-- 목록 항목: 딸기 -->
+      <li>바나나</li>    <!-- 목록 항목: 바나나 -->
+      <li>파인애플</li>  <!-- 목록 항목: 파인애플 -->
+    </ul>
+    <!--
+    <p>-----------------------------<br>
+    1. ul : 순서 없는 목록<br>
+    2. ol : 순서 있는 목록<br>
+    3. li : 목록 항목
+    </p>
+    -->
+    <!-- 순서 있는 목록(ol), 파란 배경, 글씨 크기 20px, 흰색 글씨 -->
+    <ol
+      style="
+        background-color: blue;
+        width: 330px;
+        font-size: 20px;
+        color: white;
+      "
+    >
+      <li>딸기</li>      <!-- 목록 항목: 딸기 -->
+      <li>바나나</li>    <!-- 목록 항목: 바나나 -->
+      <li>파인애플</li>  <!-- 목록 항목: 파인애플 -->
+    </ol>
+    <!-- 버튼 클릭 시 p1 요소에 35가 표시됨 (원래는 현재 시간 표시가 적합) -->
+    <button
+      type="button"
+      onclick="document.getElementById('p1').innerHTML = 35"
+    >
+      클릭하면 현재 시간이 나옵니다
+    </button>
+    <p id="p1"></p> <!-- 버튼 클릭 결과가 표시될 영역 -->
+    <!-- 버튼 클릭 시 p2 요소에 '라인컴퓨터학원'이 표시됨 -->
+    <button
+      type="button"
+      onclick="document.getElementById('p2').innerHTML = '라인컴퓨터학원'"
+    >
+      클릭!
+    </button>
+    <p id="p2"></p> <!-- 버튼 클릭 결과가 표시될 영역 -->
+    <!-- 버튼 클릭 시 fr(main) 요소에 '나는 딸기를 좋아합니다'가 표시됨 -->
+    <button
+      type="button"
+      onclick="document.getElementById('fr').innerHTML='나는 딸기를 좋아합니다'"
+    >
+      과일
+    </button>
+    <main id="fr"></main> <!-- 버튼 클릭 결과가 표시될 영역 -->
+    
+    <h3>동해안 자전거 멍멍이들</h3>
+    <img src="img/dog1.jpg" alt="멍멍이1" width="600"> 
+
+    <img src="dog2.jpg" alt="멍멍이2" width="300" height="900">
+
+  </body>
+</html>

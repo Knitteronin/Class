@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>우울한 동동이</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    main {
+      background-color: aquamarine;
+      max-width: 1000px;
+      height: 100vh;
+      margin: auto;
+      border: 3px double blue;
+      background: skyblue url("images/load.jpg") no-repeat center bottom / cover;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 {
+      border: 1px solid red;
+      margin: 0;
+      text-align: center;
+      padding: 1rem 0;
+      background-color: rgba(255,255,255,0.7);
+    }
+
+    /* 공통 위치 및 애니메이션 기본 스타일 */
+    .character {
+      position: absolute;
+      bottom: 0;
+      user-select: none;
+    }
+
+    .grass {
+      width: 100%;
+      bottom: 0;
+      position: absolute;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .dongdong {
+      width: 300px;
+      animation: dongmove 8s linear infinite;
+      bottom: 0;
+    }
+
+    .father {
+      width: 300px;
+      animation: dadmove 5s linear infinite;
+      bottom: 0;
+    }
+
+    /* 애니메이션 좌->우, 우->좌 이동 (bottom 고정) */
+    @keyframes dongmove {
+      from { left: -320px; }
+      to { left: 100%; }
+    }
+
+    @keyframes dadmove {
+      from { left: 100%; }
+      to { left: -320px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>길을 걷고 있는 동동이</h1>
+
+    <img src="images/green.png" alt="잔디" class="grass" />
+    <img src="images/dongdong.png" alt="동동이" class="character dongdong" />
+    <img src="images/dad.png" alt="아버지" class="character father" />
+  </main>
+</body>
+</html>

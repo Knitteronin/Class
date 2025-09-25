@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p>라인</p>
+    <p>컴퓨터</p>
+    <p>20</p>
+    <p>학원</p>
+    <script>
+      const $p = document.querySelectorAll("p");
+      const num = 10;
+      const str = "javascript";
+      const temp = true;
+      document.write(num * 3 + "<br>" + str + "<br>" + temp);
+      //$p[3].textContent = num * 3 + "<br>" + str + "<br>" + temp;
+
+      $p[3].innerHTML = num * 3 + "<br>" + str + "<br>" + temp;
+
+    </script>
+  </body>
+</html>

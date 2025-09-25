@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>탭키로 전환</title>
+    <style>
+      #nogel {
+        width: 500px;
+        margin: auto;
+        border: 1px dashed pink;
+      }
+      #nogel h2 {
+        width: 0;
+        height: 0;
+        overflow: hidden;
+        position: absolute;
+        margin: 0;
+        z-index: -2;
+      }
+      #nogel button {
+        background: #777;
+      }
+      #nogel button.active {
+        background: #eee;
+        padding-top: 10px;
+      }
+      #nogel > div {
+        position: relative;
+      }
+      #nogel > div > div {
+        position: absolute;
+        top: 0;
+      }
+      #notice {
+        background: pink;
+      }
+      #gallery {
+        background: yellowgreen;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <section id="nogel">
+      <nav>
+        <button type="button" class="active">공지사항</button>
+        <button type="button">갤러리</button>
+      </nav>
+      <h2>공지사항과 갤러리</h2>
+      <div>
+        <div id="notice">
+          논나었가는 너머어 자애나앞 혜갈루뇌봑즘새나 키번납잉에 갈텡에
+          낭럿지한뎡버잼에서. 엔직세가 도사다미를 고지에빨과 세강 주수곱이나
+          모손썽어 여가멩어서 만손은 는생. 중데놀 닽굼무섹은 즈여은을 겐밤을
+          허가브똇으라 저번왗그의, 흰순는 파허뻰조는 가롸유우질반디넵이다.
+          셩곤과 랐그방이요 팡카즌은 갬오은쭌을 개히으도 도흐안기 뻥캬디긱을,
+          을히노까 그느럴읜다. 언보다 와느볘족우이굴바운다 혼로살하라고
+          지덩우강는 닝이항나고 미너는 본을이 시빙조곰는 잘접는 자복네는
+          뵌후얀바를. 안어일덜은 아인뤽은 신드다 곳상으저 꾸하내에.
+        </div>
+        <div id="gallery">
+          조리수미자 요알아요 즈으염이 히냐 있소맨알앵이어서 강문꺼근서세 베죙에
+          노삼하탄의. 으이친에 냡다롼또다 논댄다, 이덜의 어제덴즘지요 앙영까삭의
+          에아등사에서, 익오꺼치 애카세푐징은 마구킪의. 뻐니씬시는
+          히리쵸아숌반다 토티손을래 개힎억이 랠멀끼우 아사거지자. 미다비저
+          리랑은 토즈를, 문흇쥐뇐군 나며, 히그즘자던 흐담거린을. 내언에의
+          겐온소아 브조잔는 다라의 쳉허의, 허싱으느냐 삼다비다 빅고엉은
+          소이엠럭으로. 데기슫숌도애나 푼손시리를 비이면 게므돠던다 합삼 측돈을,
+          거학애어후앨의 른바앙으며 그아 노셩을. 촌푸눕서도 후그 모라는
+          므에므새례를 그하퍼야에서 나드어 바울응미귀처를 이낙다 왜넣돈근
+        </div>
+      </div>
+    </section>
+    <script>
+      const x = document.querySelectorAll("#nogel button");
+      const y = document.getElementById("notice");
+      const z = document.getElementById("gallery");
+
+      x.forEach((i, j) => {
+        i.addEventListener("click", () => {
+          x.forEach((ii) => ii.classList.remove("active"));
+          i.classList.add("active");
+        //컨텐츠 표시
+        //   j === 0 ? (y.style.display = "block", z.style.display = "none") : (y.style.display = "none", z.style.display = "block");
+          y.style.display = j === 0 ? "block" : "none";
+          z.style.display = j === 0 ? "none" : "block";
+        });
+      });
+    </script>
+  </body>
+</html>

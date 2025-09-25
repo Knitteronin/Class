@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>동동이 가족의 피크닉</title>
+    <style>
+      #layout {
+        max-width: 1000px;
+        border: 1px solid red;
+        margin: auto;
+      }
+      header {
+        background-color: aquamarine;
+        padding: 20px;
+        text-align: center;
+      }
+
+      main {
+        background: red url("images/field.jpg") no-repeat right center/ cover;
+        position: relative;
+        height: 80vh;
+        overflow: hidden;
+      }
+      main img {
+        position: absolute;
+        bottom: 0;
+      }
+      [alt="dad"] {
+        width: 250px;
+        transition: 3s;
+      }
+      [alt="dad"]:hover {
+        opacity: 0.3;
+        transform: scale(5);
+      }
+
+      [alt="mom"] {
+        width: 200px;
+        left: 200px;
+      }
+      [alt="dong"] {
+        width: 230px;
+        left: 400px;
+         transition: 1s;
+      }
+      [alt="dong"]:hover {
+        transform: scaleX(4);
+       
+      }
+
+      footer {
+        padding: 15px;
+        background-color: burlywood;
+        text-align: center;
+        color: #00796b;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <header>
+        <h1>즐거운 피크닉</h1>
+      </header>
+      <main>
+        <img src="images/dad.png" alt="dad" />
+        <a href="index.html"><img src="images/mom.png" alt="mom" /></a>
+        <img src="images/dongdong.png" alt="dong" />
+      </main>
+      <footer>
+        동동이네 가족이 함께한 행복한 피크닉 이야기 &copy; 2025. 모두의 즐거운
+        추억을 위해.
+      </footer>
+    </div>
+  </body>
+</html>

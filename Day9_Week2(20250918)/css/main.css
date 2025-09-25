@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+main {
+  width: 1000px;
+  display: flex;
+  border: 2px solid red;
+  margin: auto;
+}
+
+main section {
+  flex: 1.3;
+}
+
+#notice ul {
+  list-style-position: inside;
+}
+#notice span {
+  float: right;
+}
+
+#gallery img {
+  width: 80%;
+  height: 100px;
+}
+
+#banner img {
+  width: 80%;
+  height: 100px;
+}
+
+#popup {
+  display : none;
+  position: absolute;
+  background: red;
+  width: 500px;
+  height: 200px;
+  top: 50px;
+  left: calc((100% - 500px) / 2);
+}

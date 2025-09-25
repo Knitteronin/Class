@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이미지 배치하기</title>
+    <style>
+      body { margin: 0; }
+      #layout { max-width: 1000px; border: 1px solid red; margin: auto; position: relative; }
+      /* position: relative; 는 이 옵션이 있는 요소를 기준으로 자식 요소의 절대 위치를 지정할 수 있게 합니다.-> 내가 기준이다라는 뜻이다 */
+      #layout img { display: block; width: 100%; }
+      [alt="꽃"] { position: absolute; bottom: 0; }
+    </style>
+  </head>
+  <body>
+    <div id="layout">
+      <img src="images/summer.jpg" alt="여름" />
+      <img src="images/flower.png" alt="꽃" />
+    </div>
+  </body>
+</html>
+
+<!--**시멘틱(Semantic)**은 "의미론적"이라는 뜻으로, 웹에서는 태그가 본래의 의미와 역할에 맞게 사용되는 것을 말합니다.
+
+<div> 태그는 블록 레벨 컨테이너로, 특별한 의미 없이 여러 요소를 그룹화하거나 레이아웃을 만들 때 사용합니다.
+
+주요 용도:
+
+여러 요소를 묶어서 스타일을 적용할 때
+레이아웃을 나눌 때(예: header, sidebar, content 등)
+자바스크립트로 조작할 때 그룹화 용도로 사용
+시멘틱 태그와 달리 의미가 없으므로, 구조나 의미가 필요한 경우에는 시멘틱 태그(<section>, <article>, <nav> 등)를 사용하는 것이 좋습니다.
+    -->

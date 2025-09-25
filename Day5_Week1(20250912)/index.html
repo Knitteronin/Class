@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>봄정취</title>
+    <style>
+      body {
+        margin: 0;
+      }
+
+      #layout {
+        max-width: 1000px;
+        border: 1px solid brown;
+        margin: auto;
+        position: relative;
+        overflow: hidden;
+      }
+      h1 {
+        text-align: center;
+        text-shadow: -3px -3px 0px (1, 0, 77);
+        position: absolute;
+        color: rgb(238, 97, 97);
+        width: 100%;
+      }
+
+      #layout img {
+        display: block;
+        width: 100%;
+      }
+
+      #layout img[alt="나비"] {
+        position: absolute;
+        bottom: 300px;
+        right: 30px;
+        width: 20%;
+      }
+      a {
+        position: absolute;
+        color: white;
+        right: 20px;
+        top: 20px;
+      }
+      #layout div {
+        width: 150px;
+        height: 150px;
+        background: red;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: left 2.4s linear;
+        
+      }
+      #layout div.move {
+        left: 100%;
+        
+        
+        
+      }
+      button {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="layout">
+      <h1 onclick="change()">봄풍경</h1>
+      <a href="summer.html">여름페이지로 이동</a>
+      <img src="images/spring.jpg" alt="봄" />
+      <img src="images/blue_fly.png" alt="나비" />
+      <div id="red"></div>
+      <button type="button" onclick="move()">클릭하세요!</button>
+    </div>
+
+    <script>
+      function change() {
+        const x = document.getElementsByTagName("h1")[0];
+        // x.textContent = "가을오고 있어요";
+        alert(x.textContent);
+        x.textContent = "가을이 오고 있다";
+      }
+
+      function move() {
+        const x = document.getElementById("red");
+        x.classList.add("move");
+      }
+    </script>
+  </body>
+</html>

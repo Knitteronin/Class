@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>자바스크립트 연습</title>
+    <style>
+       body {text-align: center;} 
+        img {width: 500px; height: 500px; border-radius: 50%;}
+
+    </style>
+  </head>
+  <body>
+    <h1>자바스크립트</h1>
+    <img
+      src="img/cell.jpg"
+      alt="휴대폰"
+      onclick="zzz1()"
+      
+      title="휴대폰"
+    />
+    <!--<button type="button" onclick="zzz()">zzz클릭</button>-->
+    <p id="p1"></p>
+    <h1>자바스크립트2</h1>
+    <img
+      src="img/cell.jpg"
+      alt="휴대폰"
+      onclick="zzz2()"
+      
+      title="휴대폰"
+    />
+    <!--<button type="button" onclick="zzz()">zzz클릭</button>-->
+    <p id="p2"></p>
+    <script>
+      function zzz1() {
+        document.getElementById("p1").innerHTML = "내부 스크립트가 작성됨";
+      }
+
+      function zzz2() {
+        document.getElementById("p2").innerHTML = "내부 스크립트가 작성됨";
+      }
+
+      
+    </script>
+  </body>
+</html>

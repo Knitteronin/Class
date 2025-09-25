@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>폼연습하기</title>
+    <link href="style.css" rel="stylesheet">
+  </head>
+  <body>
+    <!-- 폼 요소: 사용자 입력을 받는 컨테이너 -->
+    <form>
+      <!-- label의 for 속성은 input의 id와 연결되어 접근성을 향상시킴 -->
+      <label for="name">이름</label>
+      <!-- input 요소: id는 라벨과 연결, name은 서버 전송시 키값으로 사용 -->
+      <input type="text" id="name" name="name" placeholder="이름쓰라고"><br><br>
+      
+      <label for="inquiry">문의글</label><br>
+      <!-- textarea: 여러 줄 텍스트 입력, rows="10"으로 10줄 높이 설정 -->
+      <textarea id="inquiry" name="inquiry" placeholder="문의글" rows="10"></textarea><br><br>
+      
+      <label for="season">계절 선택</label><br>
+      <!-- select 드롭다운 메뉴 -->
+      <select id="season" name="season">
+        <!-- 첫 번째 option은 빈 value로 기본 선택 상태 표시 -->
+        <option value="">선택하기</option>
+        <!-- value 속성의 이유:
+             1. 서버 전송 시 실제 전달되는 값 (영문으로 통일)
+             2. JavaScript에서 select.value로 접근할 때 받는 값
+             3. 텍스트와 값을 분리해서 데이터 처리 용이
+             4. 다국어 지원이나 DB 저장시 영문 키값 사용 가능 -->
+        <option value="spring">봄</option>
+        <option value="summer">여름</option>
+        <option value="autumn">가을</option>
+        <option value="winter">겨울</option>
+      </select><br><br>
+      
+      <!-- type="submit"으로 폼 전송 버튼임을 명시 -->
+      <button type="submit">전송하기</button> 
+    </form>
+    
+    <!-- 결과 출력을 위한 섹션 -->
+    <section>
+      <h2>선택된 내용</h2>
+      <!-- 폼 제출 후 입력값들이 여기에 표시됨 -->
+      <p id="p1">이름: </p>
+      <p id="p2">문의글: </p>
+      <p id="p3">계절: </p>
+    </section>
+
+    <script>
+      // DOM이 완전히 로드된 후 실행
+      document.addEventListener("DOMContentLoaded", () => {
+        // 폼과 입력 요소들을 선택
+        const $form = document.querySelector("form");
+        const $input = document.querySelector('input[name="name"]'); // name 속성으로 선택
+        const $textarea = document.querySelector('textarea[name="inquiry"]');
+        const $select = document.querySelector('select[name="season"]');
+        
+        // 결과를 표시할 p 태그들을 선택
+        const $p1 = document.getElementById('p1');
+        const $p2 = document.getElementById('p2');
+        const $p3 = document.getElementById('p3');
+
+        // 폼 제출 이벤트 처리
+        $form.addEventListener("submit", (e) => {
+          e.preventDefault(); // 폼의 기본 제출 동작(페이지 새로고침) 막기
+          
+          // 각 필드의 값을 p 태그에 표시
+          $p1.textContent += "이름: " + $input.value;
+          $p2.textContent += "문의글: " + $textarea.value;
+          // select는 text(화면에 보이는 글)를 가져옴. value를 원하면 $select.value 사용
+          $p3.textContent += "계절: " + ($select.options[$select.selectedIndex].text || "선택되지 않음");
+          
+          // 개발자 도구 콘솔에 값들 출력 (디버깅용)
+          console.log("이름:", $input.value);
+          console.log("문의글:", $textarea.value);
+          console.log("계절 텍스트:", $select.options[$select.selectedIndex].text);
+          console.log("계절 값:", $select.value); // value 속성값 확인
+        });
+      });
+    </script>
+  </body>
+</html>

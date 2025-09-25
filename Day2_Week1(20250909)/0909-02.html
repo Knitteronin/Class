@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마크업연습2</title>
+    <style>
+         div {
+        width: fit-content; /* div의 너비를 내용에 맞게 자동 조절 */
+        border: 3px solid red; /* 빨간색 3px 테두리 */
+        border-radius: 20px; /* 테두리를 둥글게(20px) */
+        margin: auto; /* div를 수평 중앙에 배치 */
+        padding: 0 20px 0 20px; /* div의 내부 여백: 위0, 오른쪽20, 아래0, 왼쪽20 */
+      }
+      div:hover {
+        background: yellowgreen; /* 마우스 오버 시 배경색 변경 */
+        cursor: pointer; /* 마우스 오버 시 커서 모양 변경 */
+      }
+      img {
+        border-radius: 20px; /* 이미지 테두리를 둥글게(20px) */
+        transition: 2s; /* 이미지 스타일 변화에 2초의 전환 효과 적용 */
+      }
+      img:hover {
+        opacity: 0.5; /* 마우스 오버 시 이미지 투명도 0.5로 변경 */
+        border-radius: 100px; /* 마우스 오버 시 이미지 테두리 둥글게(100px) */
+      }
+      h1 {
+        text-align: center; /* h1 제목을 중앙 정렬 */
+      }
+      form {
+        border:5px solid blue;
+        text-align: center;
+
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+    <form>
+      <button type="button" onclick="on()">불켜기</button>
+      <img src="img/off.gif" alt="불꺼짐" id="bulb" />
+      <button type="button" onclick="off()">불끄기</button>
+    </form>
+    </div>
+
+    <script>
+      function on() {
+        document.getElementById("bulb").src = "img/on.gif";
+      }
+      function off() {
+        document.getElementById("bulb").src = "img/off.gif";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,59 @@
+@charset "utf-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#layout {
+  width: 1200px;
+  margin: auto;
+  border: 1px solid red;
+}
+header {
+  height: 100px;
+  background-color: gold;
+  display: flex;
+}
+
+header > a {
+  border: 3px double green;
+}
+
+header > a > img {
+  display: block;
+}
+
+header ul {
+  background: tomato;
+  flex: 1;
+  list-style: none;
+  display: flex;
+}
+header li {
+  border: 3px solid green;
+  flex: 1;
+}
+header ul a {
+  display: block;
+}
+#slideArea {
+  height: 300px;
+  background: skyblue;
+}
+
+footer {
+  height: 100px;
+  background: #ddd;
+}
+
+#popup {
+  position: absolute;
+  top: 150px;
+  left: 350px;
+  width: 500px;
+  height: 300px;
+  background: red;
+  display: none;
+}

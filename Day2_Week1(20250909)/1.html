@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마크업연습</title>
+    <style>
+        div { width:fit-content; border: solid 3px red; border-radius: 20px; margin:  auto; padding-left:20px; padding-right: 20px;}
+        div:hover {background: dodgerblue; cursor: pointer;}
+        img {border-radius: 20px; transition: 1s;}
+        img:hover {opacity: 0.5; border-radius: 100px;}
+        form {border:5px solid blue; text-align: center;}
+    </style>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>제목부분 제목부분 제목부분</h1>
+        </header>
+        <main>
+            <ol type="i">
+                <li>라인</li>
+                <li>컴퓨터</li>
+                <li>아트</li>
+                <li>학원</li>
+            </ol>
+            <img src="images/1.jpg" alt="가을">
+            <form>
+                <button type="button" onclick="on()">불켜기</button>
+                <img src="images/off.gif" alt="전구" id="bulb">
+                <button type="button" onclick="off()">불끄기</button>
+            </form>
+        </main>
+    </div>
+    <script>
+        function zzz() {
+            alert( 35 );
+        }
+        //zzz();
+        function on() {
+            document.getElementById('bulb').src="images/on.gif";
+        }
+        function off() {
+            document.getElementById('bulb').src="images/off.gif";
+        }
+    </script>
+</body>
+</html>

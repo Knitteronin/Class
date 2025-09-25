@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>마크업 연습</title>
+    <style>
+        body {margin:0;}
+        #layout {max-width:1500px; margin: auto; border:5px solid red; position: relative;}
+        #layout img {display: block; max-width: 100%;}
+        #layout img:not([alt="들판"]) {position: absolute;}
+        [alt="전축"] {bottom: 7%; left:25%; width:60%;}
+        [alt="잔디"] {bottom:0;}
+        [alt="새"]   {width:30%; top:10%; left:5%;}
+        [alt="파랑새"] {width:5%; top:20%; right:13%;}
+    </style>
+</head>
+<body>
+    <div id="layout">
+        <img src="images/bg.png" alt="들판">
+        <img src="images/phonograph.png" alt="전축">
+        <img src="images/grass.png" alt="잔디">
+        <img src="images/bird.png" alt="새">
+        <img src="images/blue_fly.png" alt="파랑새">
+    </div>
+</body>
+</html>
