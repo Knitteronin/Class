@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>비스듬한 모서리 만들기 (테두리모양)</title>
+    <style>
+        main {
+            width:100px; height:50px;
+            border-left:30px solid red;
+            border-right:30px solid red;            
+            margin-bottom:50px;
+        }
+        h2 {
+            width:100px; 
+            border-left:30px solid red;
+            border-right:30px solid red;
+            border-bottom:50px solid gray;
+            position: relative; margin:0;
+        }
+        h2 b {position: absolute; top:10px; left:10%; font-size:1.2rem; color:white;}        
+        footer {
+            width:100px; /* height:50px; */
+            border-left: 30px solid transparent;
+            border-right:30px solid transparent; 
+            border-bottom:30px solid black;           
+            margin-top:50px;
+        }
+    </style>
+</head>
+<body>
+    
+    <main></main>
+    <h2><b>공지사항</b></h2>
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,218 @@
+@charset "utf-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body,
+html {
+    color: #222328;
+}
+a {
+    color: #222328;
+    text-decoration: none;
+}
+img {
+    display: block;
+    max-width: 100%;
+}
+/********************/
+#layout {
+    width: 1000px;
+    height: 650px;
+    display: flex;
+    position: relative;
+}
+/********************/
+header {
+    width: 200px;
+}
+header > h1 {
+    padding: 20px 0;
+}
+header ul a {
+    display: block;
+}
+
+.mainMenu {
+    background: #514dbc;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #c7c6ec;
+}
+.mainMenu:hover {
+    background: #b62222;
+}
+.subMenu {
+    background: #c7c6ec;
+    height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.subMenu a {
+    padding: 7px;
+    text-align: center;
+}
+.subMenu a:hover {
+    background: #e98e0a;
+    color: white;
+}
+/*** 메인메뉴 호버시 서브메뉴 내려온다 ***/
+header li:focus-within .subMenu,
+header li:hover .subMenu {
+    height: 120px;
+}
+
+/********************/
+#right {
+    width: 800px;
+}
+/*** 슬라이드 ***/
+#slideArea h2 {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -2;
+}
+#slide {
+    height: 350px;
+    position: relative;
+}
+#slide a {
+    position: absolute;
+    transition: opacity 1s;
+}
+/********************/
+main {
+    height: 200px;
+    display: flex;
+}
+main h2 {
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -2;
+}
+main img {
+    border-radius: 10px;
+}
+/************/
+#nogel {
+    flex: 1.35;
+    position: relative;
+    padding-top: 10px;
+}
+#nogel nav {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1.4pt solid #555;
+}
+#nogel button {
+    padding: 3px 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #777;
+    border: 1px solid #555;
+    border-bottom: none;
+}
+#nogel button.active {
+    padding-top: 8px;
+    background: #eee;
+}
+#notice {
+    position: absolute;
+    width: 100%;
+    top: 40px;
+}
+#notice ol {
+    list-style: none;
+    line-height: 180%;
+    padding-top: 10px;
+}
+#notice span {
+    float: right;
+}
+#notice a:hover {
+    color: #e98e0a;
+    text-decoration: underline;
+}
+#gallery {
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    display: flex;
+    justify-content: space-evenly; /***************/
+    display: none;
+    padding-top: 20px;
+}
+/************/
+#banner {
+    flex: 1;
+    margin: 0 30px;
+    padding-top: 20px;
+}
+/************/
+#quick {
+    flex: 1;
+    padding-top: 20px;
+}
+/********************/
+footer {
+    height: 100px;
+    display: flex;
+    border: 1px solid gray;
+}
+footer > a {
+    border-right: 1px dashed #aaa;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+footer > div {
+    flex: 2;
+}
+footer nav {
+    border-bottom: 1px dashed #aaa;
+    height: 50%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+footer nav a {
+    margin-right: 10px;
+}
+footer nav a:hover {
+    color: black;
+    text-decoration: underline;
+}
+footer p {
+    height: 50%;
+    padding-left: 10px;
+    padding-top: 10px;
+}
+/********************/
+#popup {
+    position: absolute;
+    background: rgba(255,255,255, 0.9);
+    width: 60%;
+    top: 100px;
+    left: 250px;
+    padding: 20px;
+    border-radius: 20px;
+    line-height: 180%; /*************/
+    display: none;
+}
+#popup p {
+    padding-top: 10px;
+}
+#popup button {
+    padding: 5px 10px;
+    float: right;
+}
+/********************/

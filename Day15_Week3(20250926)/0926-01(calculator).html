@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>폼 입력값 계산하기</title>
+        <style>
+            #layout {
+                width: fit-content;
+                margin: auto;
+                border: 2px dashed red;
+                padding: 30px 50px;
+                border-radius: 20px;
+                line-height: 2.4;
+            }
+            button {
+                display: block;
+                margin: 10px auto 5px;
+            }
+            label {
+                display: inline-block;
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="layout">
+            <form>
+                <label for="price">가격</label>
+                <input type="number" id="price" required="required" placeholder="가격을 입력해주세요." min="0">원<br>
+                <label for="quantity">수량</label>
+                <!-- for 이름과 아이디 이름이 같으면 라벨문장을 클릭하면 바로 인풋으로 커서가 이동되게하는 웹향상을 이룬다 -->
+                <input type="number" id="quantity" required="required" placeholder="수량을 입력해주세요." min="0">개
+                <button type="button" id="multiplyBtn">곱하기계산하기</button><br>
+                <label for="calculation">결재금액</label>
+                <input type="number" id="calculation" readonly>원<br>
+
+                <label for="plus">더하기 금액</label>
+                <input type="number" id="plus" readonly>원
+                <button type="button" id="addBtn">더하기 계산하기</button>
+            </form>
+        </div>
+        <script>
+            const $price = document.getElementById('price');
+            const $quantity = document.getElementById('quantity');
+            const $calculation = document.getElementById('calculation');
+            const $plus = document.getElementById('plus');
+            const $multiplyBtn = document.getElementById('multiplyBtn');
+            const $addBtn = document.getElementById('addBtn');
+
+            // 숫자가 아닌 문자 제거 함수
+            function removeNonNumbers(input) {
+                input.value = input.value.replace(/[^0-9]/g, '');
+            }
+
+            // 입력 시 숫자가 아닌 문자 제거
+            $price.addEventListener('input', () => removeNonNumbers($price));
+            $quantity.addEventListener('input', () => removeNonNumbers($quantity));
+
+            // 곱하기 계산 버튼
+            $multiplyBtn.addEventListener('click', () => {
+                const x = Number($price.value) || 0;
+                const y = Number($quantity.value) || 0;
+
+                console.log("곱하기 계산 실행");
+                console.log("$price값의 타입은 : " + typeof $price.value);
+                console.log("x의 타입은 : " + typeof x);
+
+                $calculation.value = x * y;
+            });
+
+            // 더하기 계산 버튼
+            $addBtn.addEventListener('click', () => {
+                const x = Number($price.value) || 0;
+                const y = Number($quantity.value) || 0;
+
+                console.log("더하기 계산 실행");
+                console.log("$price값의 타입은 : " + typeof $price.value);
+                console.log("x의 타입은 : " + typeof x);
+
+                $plus.value = x + y;
+                console.log("$plus값의 타입은 : " + typeof $plus.value);
+            });
+        </script>
+    </body>
+</html>

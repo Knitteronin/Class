@@ -1,0 +1,276 @@
+@charset "utf-8"; /* CSS 파일의 인코딩을 UTF-8로 지정 → 한글 깨짐 방지용 */
+
+/* ---------- 초기화 ---------- */
+* { /* 모든 요소에 적용 */
+    margin: 0; /* 기본 바깥 여백 제거 (브라우저마다 초기 값 다름) */
+    padding: 0; /* 기본 안쪽 여백 제거 */
+    box-sizing: border-box; /* 요소 크기를 width+height 안에 padding, border 포함하도록 설정 */
+}
+
+body,
+html {
+    color: #222328; /* 기본 글자색 설정 → 약간 어두운 회색 */
+}
+a {
+    color: #222328; /* 링크 색상 기본 글자색과 동일 */
+    text-decoration: none; /* 링크 밑줄 제거 */
+}
+img {
+    display: block; /* 이미지 아래 불필요한 간격 제거 (인라인 속성 제거) */
+    max-width: 100%; /* 부모 영역 넘어가지 않게 제한 → 반응형 처리 */
+}
+
+/********************/
+/* 전체 레이아웃 영역 */
+#layout {
+    width: 1000px; /* 고정 가로 폭 */
+    height: 650px; /* 고정 세로 높이 */
+    display: flex; /* header와 오른쪽 영역을 가로로 배치 */
+    position: relative; /* 내부 absolute 요소 위치 기준점 */
+}
+
+/********************/
+/* 헤더 (왼쪽 메뉴) */
+header {
+    width: 200px; /* 왼쪽 영역 폭 고정 */
+}
+header > h1 {
+    padding: 20px 0; /* 상단 로고 여백 */
+}
+header ul a {
+    display: block; /* 메뉴 텍스트 전체가 클릭 영역 되도록 */
+}
+
+/* 메인 메뉴 스타일 */
+.mainMenu {
+    background: #514dbc; /* 보라 계열 배경 */
+    color: white; /* 흰색 글씨 */
+    font-size: 1.1rem; /* 글자 크기 조금 크게 */
+    font-weight: bold; /* 굵게 */
+    padding: 10px; /* 안쪽 여백 */
+    text-align: center; /* 가운데 정렬 */
+    border-bottom: 1px solid #c7c6ec; /* 아래 경계선 */
+}
+.mainMenu:hover {
+    background: #b62222; /* 마우스 올리면 빨간색으로 변경 */
+}
+
+/* 서브 메뉴 (숨겨진 세부 메뉴) */
+.subMenu {
+    background: #c7c6ec; /* 연보라 배경 */
+    height: 0; /* 초기 높이 = 0 (숨김) */
+    overflow: hidden; /* 넘치는 메뉴 표시 안 함 */
+    transition: 0.5s; /* 열릴 때 높이가 애니메이션으로 변함 */
+}
+.subMenu a {
+    padding: 7px; /* 클릭영역 확보 */
+    text-align: center;
+}
+.subMenu a:hover {
+    background: #e98e0a; /* 오렌지 배경 */
+    color: white; /* 글자 흰색 */
+}
+
+/*** 특이 포인트: `:focus-within` + `:hover` → 키보드 접근성까지 살림 ***/
+header li:focus-within .subMenu,  /* 자식이 focus 상태일 때 */
+header li:hover .subMenu {       /* 마우스 hover 상태일 때 */
+    height: 120px; /* 0 → 120px로 확장돼 메뉴가 보여짐 */
+}
+
+/********************/
+/* 오른쪽 콘텐츠 영역 */
+#right {
+    width: 800px; /* 전체 레이아웃(1000px)에서 헤더(200px)를 제외한 영역 */
+}
+
+/*** 슬라이드 영역 ***/
+#slideArea h2 {
+    width: 0; height: 0; /* 화면에서 완전히 안 보이게 */
+    overflow: hidden; 
+    position: absolute;
+    z-index: -2; /* 화면 출력에서 밀려남 → 하지만 스크린 리더는 읽음 → 접근성 확보 */
+}
+#slide {
+    height: 350px; /* 슬라이드 영역 높이 고정 */
+    position: relative; /* 내부 슬라이드 이미지 absolute 배치 기준 */
+}
+#slide a {
+    position: absolute; /* 슬라이드 이미지 겹쳐 배치 */
+    transition: opacity 1s; /* 투명도 전환 효과 (페이드 인/아웃) */
+}
+
+/********************/
+/* 메인 콘텐츠 (공지사항, 갤러리, 배너, 바로가기) */
+main {
+    height: 200px;
+    display: flex; /* 4개 콘텐츠 박스를 가로 배치 */
+}
+main h2 {
+    width: 0; height: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -2; /* 접근성 전용, 화면에 숨김 */
+}
+main img {
+    border-radius: 10px; /* 이미지 모서리 둥글게 */
+}
+
+/************/
+/* 공지사항 + 갤러리 탭 영역 */
+#nogel {
+    flex: 1.35; /* 다른 박스보다 조금 더 크게 차지 */
+    position: relative; /* 내부 absolute 요소 기준 */
+    padding-top: 10px;
+}
+#nogel nav {
+    display: flex; /* 탭 버튼 수평배치 */
+    align-items: flex-end; /* 버튼을 하단 정렬 */
+    border-bottom: 1.4pt solid #555; /* 탭 아래 경계선 */
+}
+#nogel button {
+    padding: 3px 10px;
+    border-top-left-radius: 10px; /* 버튼 위쪽 라운드 */
+    border-top-right-radius: 10px;
+    background: #777; /* 회색 배경 */
+    border: 1px solid #555;
+    border-bottom: none; /* 아래쪽 선 제거 (탭 느낌) */
+}
+#nogel button.active { /* 선택된 탭 */
+    padding-top: 8px; /* 살짝 내려온 듯한 효과 */
+    background: #eee; /* 밝은 회색 배경 */
+}
+
+/* 공지사항 리스트 */
+#notice {
+    position: absolute;
+    width: 100%;
+    top: 40px; /* 탭 메뉴 아래로 위치 */
+}
+#notice ol {
+    list-style: none; /* 숫자 목록 제거 */
+    line-height: 180%; /* 줄 간격 여유 */
+    padding-top: 10px;
+}
+#notice span {
+    float: right; /* 작성일자 같은 데이터 오른쪽 정렬 */
+}
+#notice a:hover {
+    color: #e98e0a; /* 주황색 강조 */
+    text-decoration: underline;
+}
+
+/* 갤러리 */
+#gallery {
+    position: absolute;
+    width: 100%;
+    top: 40px;
+    display: flex;
+    padding-top: 20px;
+    display: none; /* 공지사항 대신 숨겨둔 영역 (버튼 클릭 시 보여줌) */
+    justify-content: space-evenly; /* 이미지 균등 배분 */
+}
+
+/************/
+#banner {
+    flex: 1; /* 배너 영역 비율 */
+    margin: 0 30px;
+    padding-top: 20px;
+}
+#quick {
+    flex: 1; /* 바로가기 메뉴 */
+    padding-top: 20px;
+}
+
+/********************/
+/* 푸터 영역 */
+footer {
+    height: 100px;
+    display: flex; /* 좌-중-우 영역 나눔 */
+    border: 1px solid gray;
+}
+footer > a {
+    border-right: 1px dashed #aaa; /* 구분선 */
+    flex: 1; /* 3등분 중 작은 비율 */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* 링크 가운데 정렬 */
+}
+footer > div {
+    flex: 2; /* 푸터 가운데 영역 더 크게 */
+}
+footer nav {
+    border-bottom: 1px dashed #aaa;
+    height: 50%; /* 푸터 높이 절반 */
+    padding-left: 10px;
+    padding-top: 10px;
+}
+footer nav a{
+    margin-right:10px; /* 링크 간격 띄움 */
+}
+footer nav a:hover{
+    color: black;
+    text-decoration: underline;
+}
+footer p {
+    height: 50%; /* 푸터 하단 절반 */
+    padding: 10px 0 0 10px;
+}
+
+/* 팝업창 */
+#popup {
+    position: absolute; /* 화면 위치 고정 */
+    background: rgba(255,255,255, 0.8); /* 반투명 흰색 배경 */
+    width: 60%;
+    top:100px; left: 250px; /* 중앙 근처 위치 */
+    padding:20px;
+    border-radius: 20px; /* 둥근 모서리 */
+    line-height: 180%; /* 줄 여유 */
+    display: none; /* 기본 숨김 */
+}
+#popup button {
+    padding: 5px 10px;
+    float: right; /* × 버튼 오른쪽 정렬 */
+    /* border-radius: 10px; */ /* 둥글게 처리하려 했으나 비활성화 */
+}
+
+/* ================================================ */
+/* 반응형 (모바일용 / 가로 크기 500px 이하 적용) */
+@media(max-width:500px) {
+    #layout {
+        flex-direction: column; /* 세로배치 */
+        width:100%; height:initial;
+    }
+    header { width:100%; }
+    header> h1 img { margin:auto; } /* 로고 가운데 정렬 */
+    #right { width:initial; }
+    #slide {
+        /* height:initial;  높이를 초기화하면 absolute 때문에 무너짐 */
+        height:35vh;  /* vh 단위로 상대 높이 지정 */
+    }
+    #slide img {
+        width:100vw; height:30vh; /* 전체 화면에 맞춤 */
+    }
+    main {
+        flex-direction: column; /* 공지/갤러리/배너/퀵 세로 배열 */
+        height:initial; 
+    }
+    #nogel { padding:0 5px 20px 5px; }
+    #notice { position:initial; } /* absolute 해제 */
+    #gallery { position: initial; } /* absolute 해제 → 모바일 자연스러운 배치 */
+    #banner img , #quick img{ margin:auto; } /* 가운데 정렬 */
+    footer {
+        flex-direction: column; height:initial;
+        padding:20px 0; /* 모바일에서 세로 푸터 */
+    }
+    footer a { border:none; }
+    footer nav {
+        border:none; text-align: center;
+        padding-top:20px; /* 모바일에서 가운데 정렬 */
+    }
+    footer p {
+        letter-spacing: -1px; text-align: center; /* 자간 좁혀서 작은 화면 최적화 */
+    }
+    #popup {
+        width:90%; top:15vh; left:5vw; /* 모바일 화면 중앙 배치 */
+    }    
+}
