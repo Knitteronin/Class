@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            #layout {
+                width: 300px;
+                border: 10px solid red;
+                margin: auto;
+            }
+            #slide {
+                width: 900px;
+                display: flex;
+                position: relative;
+                left: 0;
+            }
+            #slide div {
+                width: 300px;
+                height: 200px;
+                border: 1px solid yellowgreen;
+                font-size: 3rem;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="layout">
+            <div id="slide">
+                <div>1
+                </div>
+                <div>
+                    2</div>
+                <div>3
+                </div>
+            </div>
+        </div>
+        <script>
+            const x = document.getElementById("slide");
+
+            const y = () => {
+                const z = x.animate([
+                    {
+                        left: '0px'
+                    }, {
+                        left: '-300px'
+                    }
+                ], {duration: 1000});
+
+                // 애니가 완전 종료후 실행회는 API 객체.속성.메소드()      객체.finished.then(콜백함수)
+                z
+                    .finished
+                    .then(() => {
+
+                        x.style.left = "0px";
+
+                        x.append(x.firstElementChild)
+                    });
+            }
+            setInterval(y, 2500);
+        </script>
+    </body>
+</html>

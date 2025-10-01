@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1단꼐 html로 자식요소 생성</title>
+</head>
+<body>
+    <h1>innerHTML로 자식요소 생성하는 방법</h1>
+</body>
+    <ul>
+        <li>장점:짧고 이해하기 쉽다.</li>
+        <li>단점:덮어쓰기 문제, 보안문제가 있다.</li>
+    </ul>
+    <hr>
+    <h2>텍스트가 포함된 2개의 li요소를 추가한다.</h2>
+    <ul id="list">
+    </ul>
+    <script>
+        const ul = document.getElementById('list');
+        ul.innerHTML = '<li>딸기</li><br>';
+        ul.innerHTML += '<li>바나나</li><br>';
+    </script>
+</html>

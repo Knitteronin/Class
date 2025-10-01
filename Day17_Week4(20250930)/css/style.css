@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+* { margin: 0; padding:0; box-sizing: border-box;
+
+}
+
+body, html {
+
+}
+
+a {
+
+}
+
+img { max-width: 100%;
+
+}
+
+/* body 영역 */
+/* 전체 레이아웃 영역 */
+#layout {
+
+}
+
+/* 헤더영역 */
+header {
+
+}
+
+header h1{
+
+}
+
+/* 메인영역 */
+main {
+
+}
+
+/* 푸터영역 */
+footer {
+
+}

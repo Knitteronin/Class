@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아코디언 기능 + 접근성 반영(포커싱기능)</title>
+    <style>
+        #accodions {width: 700px; margin: auto; border: 1px solid peru;text-align: center;}
+        button {display:block;width: 700px;padding: 10px;}
+        p{display: none;text-align: left;padding-left: 5px;}
+        button:focus + p{display: block;}
+        .btn:hover, .btn:focus, .btn[aria-expanded="true"]{
+            background: orange;
+        }
+        .btn:focus{
+            outline: 2px dashed #00f;
+        }
+        .panel{ overflow: hidden;}
+        /* 자식요소 button > b
+            자손요소 button b
+            다음형제 button + p
+            다음모든형제 button ~ p
+        */
+
+        
+        
+        
+    </style>
+</head>
+<body>
+</body>
+    <section id="accodions">
+        <h2>아코디언 기능 css: focus 사용</h2>
+        <button class="btn" aria-expanded="true" aria-controls="d1">섹션1</button>
+        <p class="panel" id="p1" role="region">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nobis voluptas libero nostrum est ad! Possimus impedit iste enim fuga harum culpa suscipit quod animi ullam neque, perferendis cumque accusantium praesentium?
+        </p>
+        <button class="btn" aria-expanded="false" aria-controls="d2">섹션2</button>
+        <p class="panel" id="p2" role="region">Lorem ipsum  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos explicabo omnis quam, iusto ullam beatae? Nisi eligendi iure, dolores quia earum repudiandae, mollitia sequi obcaecati officia illo laudantium debitis sint?dolor, sit amet consectetur adipisicing elit. Nobis voluptas libero nostrum est ad! Possimus impedit iste enim fuga harum culpa suscipit quod animi ullam neque, perferendis cumque accusantium praesentium?
+        </p>
+        <button class="btn" aria-expanded="false" aria-controls="d3">섹션3</button>
+        <p class="panel" id="p3" role="region">Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit repellat, officiis enim, omnis quos maxime sapiente dicta praesentium quisquam veniam hic aliquid quibusdam accusantium alias deleniti. Vel quidem accusantium non illo laboriosam facilis suscipit, veritatis amet voluptate libero, adipisci et iste repellat, in reiciendis commodi?cipit quod animi ullam neque, perferendis cumque accusantium praesentium?
+        </p>
+    </section>
+    <script>
+    </script>
+</html>

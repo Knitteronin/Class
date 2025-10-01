@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전체넓이 레이아웃</title>
+    <style>
+        * {margin:0; padding:0; box-sizing: border-box;}
+        html,body {color:#333;}
+        a {color:#333; text-decoration: none;}
+
+        #layout {border:2px solid gray; display: flex;}
+        header {width:200px; background: gold;}
+        #right {width:calc(100% - 200px);}
+        #slideArea {height:400px; background: pink;}
+        #link {height:150px; justify-content: space-around; padding-top: 20px;}
+        #link h2 { display: none; }
+        #link> div {display: flex;}
+        #link>div> div {width:15%; text-align: center;}
+        #link> div> div img {background: red; width:70%; height:80px; margin:auto; margin-bottom: 10px; display:inline-block;}
+        #link a:hover {color:tomato; text-decoration: underline;}
+
+        main {height:250px; background: #ddd;}
+    </style>
+</head>
+<body>
+    <div id="layout">
+        <header></header>
+        <div id="right">
+            <section id="slideArea"></section>
+            <section id="link">
+                <h2>링크콘텐츠</h2>
+                <div>
+                    <div>                        
+                        <a href="#">
+                            <img src="#" alt="링크1"><br>
+                            LINK1
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="#" alt="링크2"><br>
+                            LINK2
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="#" alt="링크3"><br>
+                            LINK3
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="#" alt="링크4"><br>
+                            LINK4
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="#" alt="링크5"><br>
+                            LINK5
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="#" alt="링크6"><br>
+                            LINK6
+                        </a>
+                    </div>
+                    <div>
+                        <a href="#">
+                            <img src="#" alt="링크7"><br>
+                            LINK7
+                        </a>
+                    </div>
+                </div>                    
+            </section>
+            <main></main>
+        </div>
+    </div>
+    <script>
+        // 1. 빨간 이미지를 클릭하면 이미지의 alt정보가 콘솔에 표시된다
+        const $img = document.querySelectorAll('#link img');//NodeList
+        $img.forEach( i=>{
+            i.addEventListener('click', ()=> {
+                const alt = i.alt;
+                console.log( alt );
+            });
+        });
+
+        // 2-1. 슬라이드영역을 클릭하면 해당 영역의 배경색이 경고창에 표시된다.
+        // 2-2. 슬라이드영역을 클릭하면 해당 영역의 높이가 콘솔창에 반환된다.
+        const $slideArea = document.getElementById('slideArea'); //HTMLElement
+        $slideArea.addEventListener('click' , ()=> {
+            // $slideArea.style.background = 'tomato';
+            const bg = getComputedStyle($slideArea).backgroundColor;
+            alert( bg ); //rgb(255,192,203);
+            const height = getComputedStyle($slideArea).height;
+            console.log( height );//400px
+        });
+
+        // 3. 왼쪽의 노란부분을 클릭하면 배경색이 aqua 색이 된다.
+        const $left = document.querySelector('header'); //HTMLElement
+        $left.addEventListener('click' ,()=> {
+            $left.style.background= 'aqua';
+        });
+
+        // 4-1. 메인영역(회색)을 클릭하면 해당영역이 위로 100픽셀 올라온다.
+        // 4-2. 그 부분을 한번 더 클릭했더니 원상복귀 되었다.
+        const $main = document.querySelector('main'); //HTMLElement
+        let i = 0;
+        $main.addEventListener('click' ,()=> {
+            $main.style.transition = '1s';
+            i++;
+            if( i === 1) $main.style.transform = 'translateY(-100px)';
+            else {
+                    $main.style.transform = 'translateY(0)';
+                    i = 0;
+            } 
+        });
+    </script>
+</body>
+</html>

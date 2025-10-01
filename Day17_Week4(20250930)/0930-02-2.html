@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>
+        createElement로 자식요소 생성하기
+    </h1>
+    <ul>
+        <li>장점 : 안전하고 구조적오르 명확하다</li>
+        <li>단점 : 코드가 조금 어렵고 길다</li>
+
+
+    </ul>
+    <hr>
+    <h2>li요소를 생성하고, 텍스트를 추가한 후, 기존 ul요소에 포함시킨다.</h2>
+    <ul id="list"></ul>
+    
+    <script>
+        const x = document.getElementById('list');
+        //1. 포함될 항목을 배열에 임시 저장한다.
+        const y = ['딸기','바나나'];
+
+        //2. 배열 반복문으로 li를 생성한 후 ul에 추가시킨다.
+        y.forEach( i => {
+            const li = document.createElement('li');
+            li.textContent = i; // 그<li>에 텍스트 추가함.
+            x.append(li); // 실제 DOM 추가됨
+
+        });
+
+
+
+    </script>
+    
+</body>
+</html>

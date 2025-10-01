@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>animate() API</title>
+        <style>
+            #box {
+                width: 100px;
+                height: 100px;
+                background: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="box"></div>
+
+        <script>
+            const box = document.getElementById('box'); //HTMLDivElement
+
+            //애니메이션 시작 객체.animate( keyframes, options )형식임.
+            box.animate([
+                {
+                    transform: 'translateX(0)'
+                }, { //시작 좌표
+                    transform: 'translateX(300px)'
+                } //끝 좌표
+            ], {
+                duration: 1000, //1초동안 지정위치까지 이동함.
+                fill: 'both', //애니메이션 위치를 설정한 그대로 반영.
+                iterations: Infinity, //무한반복
+                direction: 'alternate' //왔다가 갔다가
+            });
+        </script>
+    </body>
+</html>

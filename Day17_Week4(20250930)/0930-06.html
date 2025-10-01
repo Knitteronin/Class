@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hidden연습</title>
+</head>
+<body>
+    <button>섹션1</button>
+    <p hidden>This is a paragraph.</p>
+    <script>
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', ()=> {
+            btn.nextElementSibling.hidden = false;
+        });
+    </script>
+</body>
+</html>

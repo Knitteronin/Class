@@ -1,0 +1,187 @@
+@charset "utf-8";
+
+* {
+    margin:0; padding:0; box-sizing: border-box;
+}
+html,body {
+    color:#333;
+}
+a {
+    color:#333; text-decoration: none;
+}
+img {
+    max-width: 100%;
+}
+
+#layout {
+    height:800px; display: flex; overflow: hidden;
+}
+
+/*<h2>대해{ display:none;} 을 대체한 웹접근성향상 속성들 */
+#slideArea h2 , #link h2  {
+    width:0; height:0; overflow: hidden; position: absolute; z-index: -2;
+}
+
+
+/*** 왼쪽부분 ***/
+header {
+    width:200px; padding-top:20px;
+
+}
+/*왼쪽메뉴*/
+header ul {   
+    padding-top:20px; padding-left:20px;
+    list-style: none;
+}
+header li {
+    position: relative;
+}
+.mainMenu {    
+    display: block; padding:13px;
+    font-size:1.05rem; font-weight:bold;
+}
+.mainMenu:hover {
+    background: brown; color:white;
+}
+.subMenu {
+    background: brown; z-index: 1;
+    position: absolute; top:0; left:160px;
+    /* width:calc(100vw - 200px);  */
+    height:100%;
+    display: flex; align-items: center;
+    padding-left:20px;          /**********/ display:none;
+}
+/*<ul>에 마우스대면 나타난다 + 웹접근성향상 */
+header li:hover .subMenu , 
+header li:focus-within .subMenu {
+    display: flex;
+}
+
+.subMenu a {
+    padding: 13px; color:pink;
+    width:170px; text-align: center;
+}
+.subMenu a:hover {
+    background: darkred; color:white;
+    font-weight: bold;
+}
+
+/******************************************/
+/*** 오른쪽부분 ***/
+#right {
+    width:calc(100% - 200px);
+}
+
+/*슬라이드영역*/
+#slideArea {
+    background:tomato;
+    height:400px; position: relative;
+}
+#slide a {    
+    display: block; position: absolute; width:100%; /*absolute는 100%가 상실되므로 명시적으로 100%쓴다 */
+    transition:opacity 1s; /*부드럽게 fade된다 */
+}
+#slide img {
+    display: block; width:100%; height:400px; 
+}
+
+/***링크영역 ***/
+#link {
+    height:150px; padding-top: 20px;
+}
+#link div {
+    display: flex; justify-content:space-evenly;
+}
+#link a {
+    width:150px; text-align: center;
+}
+
+/*** 메인영역 ***/
+main {    
+    height:250px; display: flex;
+    justify-content: space-between;
+}
+main h2 {
+    border-bottom:1px solid #333;
+    width:fit-content; 
+    border-left:30px solid transparent;
+    border-right:30px solid transparent;
+    border-bottom:50px solid #333;
+    padding:0 20px;
+}
+main h2 b {
+    display: block; color:white;
+    transform: translateY(38px);
+    font-size:1.1rem;
+}
+main hr {
+    height: 3px; background: #333; border:none;
+    margin-bottom:10px;
+}
+#notice {
+    width:40%;
+}
+#notice ol {
+    list-style: none; line-height: 180%;
+}
+#notice span {
+    float:right;
+}
+#notice a:hover {
+    color:rgb(95, 121, 179); text-decoration: underline;
+}
+
+#gallery {
+    width:50%;
+}
+#gallery div {
+    display: flex; justify-content: space-around;
+    text-align: center;
+}
+#gallery img {
+    display: block;
+}
+
+/******************************************/
+/***하단***/
+footer {
+    border-top:1px solid #333;
+    height:120px; 
+    display: flex; align-items: center;
+}
+footer> a {
+    width:200px; 
+}
+footer> div {
+    flex:1; padding-left:50px; line-height: 200%;
+}
+footer> div a {
+    margin-right:20px;
+}
+footer> div a:hover {
+    color:black; text-decoration: underline;
+}
+footer> nav {
+    display: flex;
+}
+footer> nav a {
+    margin:10px;
+}
+footer> nav img {
+    width:70px; border-radius: 50%;
+}
+
+/******************************************/
+/***팝업모달***/
+#popup {
+    position: absolute; top:100px; left:calc((100% - 600px) / 2);
+    background: white; width:600px; padding:20px;
+    border-radius:20px; box-shadow: 0 0 10px black;
+    line-height: 180%; /*****************/ display: none;
+}
+#popup h3 {
+    padding-bottom: 10px;
+}
+#popup button {
+    float: right; padding:5px 20px;
+}
